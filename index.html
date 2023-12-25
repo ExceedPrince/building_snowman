@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Tanfolyam || Hóemberépítés</title>
+    <link rel="icon" type="image/x-icon" href="/media/icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Mountains+of+Christmas&family=Spectral:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="root">
+        <div class="playBtn">
+            <div class="play"></div>
+        </div>
+        <h1>Építs hóembert</h1>
+        <div id="generator">
+            <h3>Válaszd ki a paramétereket!</h3>
+            <div id="inputFields">
+                <span>Hólabdák száma</span>
+                <label for="minimum">
+                    minimum:
+                    <input type="number" id="min-input" name="minimum" value="3" min="3" max="98">
+                </label>
+                <label for="maximum">
+                    maximum:
+                    <input type="number" id="max-input" name="maximum" value="99" min="4" max="99">
+                </label>
+                <span>
+                    <button type="button" id="randomBtn">Véletlenszerű</button>
+                </span>
+            </div>
+            <div id="mainButtons">
+                <button type="button" id="resetBtn">Mindent vissza</button>
+                <button type="button" id="createBtn">Mehet!</button>
+            </div>
+        </div>
+        <div id="mainContainer">
+            <div id="mainContainerLeft">
+                <div id="allIngredients" class="containers">
+                    <h4>Összetevők: <span id="allNumber"></span></h4>
+                    <p class="ingredients">
+                        Kicsi hólabdák száma: 
+                        <span class="snowBallNumber small"></span>
+                    </p>
+                    <p class="ingredients">
+                        Közepes hólabdák száma: 
+                        <span class="snowBallNumber mid"></span>
+                    </p>
+                    <p class="ingredients">
+                        Nagy hólabdák száma: 
+                        <span class="snowBallNumber big"></span>
+                    </p>
+                </div>
+                <div id="notUsedIngredients" class="containers">
+                    <h4>Fel nem használt hólabdák:</h4>
+                    <p class="ingredients">
+                        Kicsi: 
+                        <span class="snowBallNumber notUsed small"></span>
+                    </p>
+                    <p class="ingredients">
+                        Közepes: 
+                        <span class="snowBallNumber notUsed mid"></span>
+                    </p>
+                    <p class="ingredients">
+                        Nagy: 
+                        <span class="snowBallNumber notUsed big"></span>
+                    </p>
+                </div>
+            </div>
+            <div id="mainContainerRight" class="d-none">
+                <p id="snowmanFinal">
+                    Teljes hóemberek száma:
+                    <span id="numberOfSnowmen"></span>
+                </p>
+                <div id="snowmanGraphic" class="containers"></div>
+            </div>
+        </div>
+    </div>
+    <div class="snowflakes"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <audio controls autoplay loop>
+        <source src="/media/santa_claus.mp3" type="audio/mp3">
+    </audio> 
+    <script src="./script.js"></script>
+</body>
+</html>

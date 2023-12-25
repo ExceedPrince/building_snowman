@@ -1,0 +1,600 @@
+/*Variables*/
+:root {
+    --lightBlue: rgb(107, 238, 255);
+    --blue: rgb(24, 113, 221);
+    --midBlue: rgb(15, 68, 184);
+    --shadowBlue: rgb(15, 15, 167);
+    --darkBlue: rgb(14, 14, 151);
+    --red: rgb(255, 62, 62);
+    --carrotRed: #ffa500;
+    --brown: #bd5a14;
+    --green: #4caf50;
+    --lightGreen: #71d875;
+}
+
+/*Design*/
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-image: linear-gradient(var(--lightBlue), var(--blue));
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Spectral", serif;
+    font-size: 20px;
+}
+
+#root {
+    padding: 15px;
+    min-height: 100vh;
+}
+
+h1,
+h3,
+h4 {
+    font-family: "Mountains of Christmas", serif;
+    font-weight: 900;
+    font-size: 64px;
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px 15px var(--shadowBlue);
+}
+
+h3 {
+    font-size: 36px;
+}
+
+h4 {
+    font-size: 28px;
+}
+
+#inputFields,
+#mainButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+input[type="number"] {
+    outline: none;
+    width: 70px;
+    border: 2px solid var(--lightBlue);
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 18px;
+    font-family: "Spectral", serif;
+    text-align: center;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+button {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: var(--darkBlue);
+    font-size: 18px;
+    font-family: "Spectral", serif;
+    color: white;
+    box-shadow: 0px 3px 3px white;
+    cursor: pointer;
+    transition:
+        background-color 200ms ease-in-out,
+        box-shadow 200ms ease-in-out;
+}
+
+button:hover {
+    background-color: var(--midBlue);
+}
+
+button:active {
+    background-color: var(--darkBlue);
+    box-shadow: 0px 3px 3px rgba(255, 255, 255, 0);
+}
+
+button:disabled {
+    opacity: 0.5;
+}
+
+#mainContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+#mainContainer h4 {
+    text-align: left;
+    margin: 0;
+}
+
+#mainContainerLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: calc(30% - 30px);
+    min-width: 300px;
+}
+
+.containers {
+    border: 5px solid var(--lightBlue);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    color: white;
+}
+
+.notUsed {
+    color: var(--red);
+}
+
+.d-none {
+    display: none;
+}
+
+#mainContainerRight {
+    width: calc(70% - 30px);
+}
+
+#snowmanFinal {
+    font-family: "Mountains of Christmas", serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: white;
+    text-shadow: 3px 3px 15px var(--shadowBlue);
+    margin: 0 0 10px;
+}
+
+.complete::after {
+    content: "✔";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--lightBlue);
+}
+
+#snowmanGraphic {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 20px;
+}
+
+.snowmanContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    height: 200px;
+}
+
+/*Snowman head*/
+.snowman-head {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.eye {
+    position: absolute;
+    background-color: black;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.eye.left {
+    top: 30%;
+    left: 25%;
+}
+
+.eye.right {
+    top: 30%;
+    left: 60%;
+}
+
+.nose {
+    position: absolute;
+    background-color: var(--carrotRed); /* Orange color for the carrot nose */
+    width: 5px;
+    height: 15px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-100%, 25%) rotate(-135deg);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.smile {
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 20px;
+    height: 19px;
+    top: 47%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: none;
+}
+
+.smile::after {
+    content: " ";
+    display: block;
+    height: 12px;
+    width: 40px;
+    background-color: white;
+    position: absolute;
+    top: 0px;
+    left: -10px;
+}
+
+/*Snowman middle*/
+.snowman-middle {
+    position: absolute;
+    top: 45px;
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.hand {
+    position: absolute;
+    background-color: var(--brown);
+    width: 2px;
+    height: 40px;
+    top: 10px;
+}
+
+.hand.left {
+    left: -10px;
+    transform: rotate(-45deg);
+}
+
+.hand.right {
+    right: -10px;
+    transform: rotate(45deg);
+}
+
+/*Snowman Bottom*/
+.snowman-bottom {
+    position: absolute;
+    top: 100px;
+    width: 90px;
+    height: 90px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot:nth-child(1) {
+    top: 20px;
+}
+
+.dot:nth-child(2) {
+    top: 45px;
+}
+
+.dot:nth-child(3) {
+    top: 70px;
+}
+
+/*Snowflakes*/
+.snowflakes {
+    width: 100%;
+    height: 1200px;
+    position: fixed;
+    top: -100px;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.snowflakes i {
+    height: 70px;
+    width: 70px;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.2));
+    display: inline-block;
+    -webkit-animation: snowflakes 3s linear 2s 20;
+    -moz-animation: snowflakes 3s linear 2s 20;
+    position: relative;
+}
+
+.snowflakes i:before {
+    height: 100%;
+    width: 100%;
+    content: url("./media/snowflake.svg");
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transform: rotate(120deg);
+    border-radius: 2px;
+}
+
+.snowflakes i:before {
+    -webkit-transform: rotate(240deg);
+}
+
+@-webkit-keyframes snowflakes {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0) rotate(0deg) scale(0.6);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(15px, 1200px, 0px) rotate(360deg) scale(0.6);
+    }
+}
+
+.snowflakes i:nth-child(3n) {
+    transform: scale(0.5);
+    -webkit-animation-duration: 8s;
+    -webkit-animation-iteration-count: 30;
+    -webkit-transform-origin: right -45px;
+}
+
+.snowflakes i:nth-child(3n + 1) {
+    transform: scale(1.1);
+    -webkit-animation-duration: 12s;
+    -webkit-animation-iteration-count: 45;
+    -webkit-transform-origin: right -30px;
+}
+
+.snowflakes i:nth-child(3n + 2) {
+    transform: scale(0.8);
+    -webkit-animation-duration: 16s;
+    -webkit-animation-iteration-count: 60;
+    -webkit-transform-origin: right -15px;
+}
+
+.snowflakes i:nth-child(7n) {
+    opacity: 0.3;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-timing-function: ease-in;
+}
+
+.snowflakes i:nth-child(7n + 1) {
+    opacity: 0.4;
+    -webkit-animation-delay: 1s;
+    -webkit-animation-timing-function: ease-out;
+}
+
+.snowflakes i:nth-child(7n + 2) {
+    opacity: 0.5;
+    -webkit-animation-delay: 1.5s;
+    -webkit-animation-timing-function: linear;
+}
+
+.snowflakes i:nth-child(7n + 3) {
+    opacity: 0.6;
+    -webkit-animation-delay: 2s;
+    -webkit-animation-timing-function: ease-in;
+}
+
+.snowflakes i:nth-child(7n + 4) {
+    opacity: 0.7;
+    -webkit-animation-delay: 2.5s;
+    -webkit-animation-timing-function: linear;
+}
+
+.snowflakes i:nth-child(7n + 5) {
+    opacity: 0.8;
+    -webkit-animation-delay: 3s;
+    -webkit-animation-timing-function: ease-out;
+}
+
+.snowflakes i:nth-child(7n + 6) {
+    opacity: 0.9;
+    -webkit-animation-delay: 3.5s;
+    -webkit-animation-timing-function: ease-in;
+}
+
+/*Auido*/
+.playBtn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 20px;
+    right: 20px;
+    background-color: var(--green);
+    border-radius: 50%;
+    box-shadow: 0px 3px 3px white;
+    transition: background-color 300ms ease-in-out;
+}
+
+.playBtn:hover {
+    background-color: var(--lightGreen);
+    cursor: pointer;
+}
+
+.playBtn .play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 20px solid #ffffff;
+    translate: -33% -50%;
+    pointer-events: none;
+}
+
+.playBtn.stopped .play::after {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 5px;
+    translate: -85% -50%;
+    border: 1px solid var(--green);
+    rotate: 35deg;
+    background-color: #ffffff;
+}
+
+audio {
+    display: none;
+}
+
+/*Responsive views*/
+@media screen and (max-width: 1023px) {
+    #mainContainer {
+        flex-wrap: wrap-reverse;
+    }
+
+    #mainContainerLeft,
+    #mainContainerRight {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .containers,
+    #mainContainer h4 {
+        text-align: center;
+    }
+}
+@media screen and (max-width: 767px) {
+    #root {
+        padding: 30px 50px;
+    }
+
+    #mainContainer {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 639px) {
+    #inputFields {
+        flex-direction: column;
+    }
+
+    .snowmanContainer {
+        width: 55px;
+        height: 110px;
+        margin: 0 auto;
+    }
+
+    .snowman-head {
+        width: 25px;
+        height: 25px;
+    }
+
+    .eye {
+        width: 4px;
+        height: 4px;
+    }
+
+    .eye.left {
+        left: 20%;
+    }
+
+    .smile {
+        width: 12px;
+        height: 7px;
+        top: 52%;
+        left: 50%;
+    }
+
+    .smile::after {
+        height: 4px;
+    }
+
+    .nose {
+        height: 10px;
+    }
+
+    .snowman-middle {
+        top: 23px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .dot {
+        width: 5px;
+        height: 5px;
+    }
+
+    .dot:nth-child(1) {
+        top: 10px;
+    }
+
+    .dot:nth-child(2) {
+        top: 22px;
+    }
+
+    .hand {
+        height: 23px;
+        top: 0px;
+    }
+
+    .snowman-bottom {
+        top: 55px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .dot:nth-child(3) {
+        top: 35px;
+    }
+
+    .complete::after {
+        top: -5px;
+        right: -10px;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h3 {
+        font-size: 25px;
+    }
+
+    h4,
+    #snowmanFinal {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    #snowmanGraphic {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 20px;
+    }
+}
